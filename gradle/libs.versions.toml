@@ -21,6 +21,9 @@ room = "2.6.1"
 
 hilt = "2.52"
 hiltNavigation = "1.2.0"
+jetbrainsKotlinJvm = "1.9.0"
+coil = "2.7.0"
+annotationJvm = "1.9.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -67,6 +70,8 @@ hilt-compiler = { group="com.google.dagger", name = "hilt-compiler", version.ref
 hilt-testing = {group= "com.google.dagger", name="hilt-android-testing", version.ref= "hilt"}
 hilt-navigation = {group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigation" }
 
+coil = { group= "io.coil-kt", name="coil-compose", version.ref="coil"}
+androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jvm", version.ref = "annotationJvm" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -79,6 +84,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref="ksp"}
 #hilt
 hilt = {id="com.google.dagger.hilt.android", version.ref="hilt"}
 kapt = {id="org.jetbrains.kotlin.kapt", version.ref="kotlin"}
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 
 [bundles]
 networking = [ "retrofit", "retrofit-serialization", "kotlinx-serialization-json", "okhttp3"]

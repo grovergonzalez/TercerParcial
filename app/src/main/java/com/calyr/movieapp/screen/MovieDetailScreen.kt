@@ -3,7 +3,12 @@ package com.calyr.movieapp.screen
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -18,11 +23,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Observer
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.calyr.domain.Movie
 import com.calyr.movieapp.viewmodel.MovieDetailViewModel
+import coil.compose.AsyncImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -80,12 +89,23 @@ fun MovieDetailScreenContent(modifier: Modifier, movieId: String) {
         LocalLifecycleOwner.current,
         Observer(::updateUI)
     )
-
-
     Column(
         modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp),
     ) {
-        Text(text = movieUI.title )
-        Text(text = movieUI.description)
+        AsyncImage(
+            model = "https://image.tmdb.org/t/p/w185/${movieUI.posterPath}",
+            contentDescription = "MovieImage",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+                .height(180.dp)
+                .width(160.dp)
+
+        )
+        Text(text = movieUI.title, color = Color.Black, fontSize = 26.sp)
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = movieUI.description, color = Color.Black)
     }
 }
