@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.calyr.movieapp.screen.CinemaMap
 import com.calyr.movieapp.screen.MovieDetailScreen
 import com.calyr.movieapp.screen.MoviesScreen
 import com.calyr.movieapp.viewmodel.MovieViewModel
@@ -43,6 +44,9 @@ fun AppNavigation() {
                 },
                 movieId = it.arguments?.getString("movieId")?:""
             )
+        }
+        composable(Screens.CinemaMapScreen.route) {
+            CinemaMap()
         }
     }
 }

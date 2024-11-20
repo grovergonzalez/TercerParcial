@@ -25,6 +25,10 @@ jetbrainsKotlinJvm = "1.9.0"
 coil = "2.7.0"
 annotationJvm = "1.9.1"
 
+googleMaps = "4.4.1"
+googleGmsGoogleServices = "4.4.2"
+firebaseMessaging = "24.1.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -73,6 +77,9 @@ hilt-navigation = {group = "androidx.hilt", name = "hilt-navigation-compose", ve
 coil = { group= "io.coil-kt", name="coil-compose", version.ref="coil"}
 androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jvm", version.ref = "annotationJvm" }
 
+google-map = { group="com.google.maps.android", name="maps-compose", version.ref="googleMaps"}
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -85,6 +92,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref="ksp"}
 hilt = {id="com.google.dagger.hilt.android", version.ref="hilt"}
 kapt = {id="org.jetbrains.kotlin.kapt", version.ref="kotlin"}
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 
 [bundles]
 networking = [ "retrofit", "retrofit-serialization", "kotlinx-serialization-json", "okhttp3"]

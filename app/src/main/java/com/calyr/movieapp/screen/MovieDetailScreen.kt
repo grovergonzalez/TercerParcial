@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -32,6 +33,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.calyr.domain.Movie
 import com.calyr.movieapp.viewmodel.MovieDetailViewModel
 import coil.compose.AsyncImage
+import com.calyr.movieapp.util.showNotification
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -57,7 +59,7 @@ fun MovieDetailScreen(onBackPressed: () -> Unit, movieId: String) {
         },
         content = {
                 paddingValues -> MovieDetailScreenContent( modifier = Modifier.padding(paddingValues),
-                    movieId = movieId)
+            movieId = movieId)
         }
     )
 }
@@ -107,5 +109,15 @@ fun MovieDetailScreenContent(modifier: Modifier, movieId: String) {
         Text(text = movieUI.title, color = Color.Black, fontSize = 26.sp)
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = movieUI.description, color = Color.Black)
+        IconButton(
+            onClick = {
+                showNotification(context, movieUI)
+            }
+        ) {
+            Icon(
+                Icons.Default.Notifications,
+                contentDescription = null
+            )
+        }
     }
 }
